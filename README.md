@@ -4,6 +4,7 @@
 
 * Ricardo Guillen Vergara
 * Zach Hunn
-* Joey Spielman
+* Joey Spielman(Captain)
 * Chevant Starr
 * Muhammad Tariq 
+
