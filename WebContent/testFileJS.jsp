@@ -12,18 +12,12 @@
 <body>
 <%
 	JdbcCustomerDao db = new JdbcCustomerDao();
-Customer input = new Customer(9999,"Test","Last","testUser","testPass",14);
-try{	
-	db.add(input);
-}catch(Exception e_){
-	System.out.println("Add failed");
-}
-
-input.setFirst_name("Franklin");
-
-db.update(input);
-
-db.remove(9999);
+	
+	Customer test = db.findByUser("joeyspielman@gmail.com");
+		
+	out.print(test.toString());
+	
+	
 %>
 
 </body>

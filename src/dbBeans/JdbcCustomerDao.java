@@ -104,8 +104,42 @@ public class JdbcCustomerDao implements CustomerDao {
 
 	@Override
 	public Customer find(Integer key) {
-		// TODO Auto-generated method stub
 		return null;
+	}	
+	
+	public Customer findByUser(String key) {
+		PreparedStatement prepStmt = null;
+		String userIn = key;
+		String searchQuery = "Select * from Customer WHERE user_name='"+userIn+"'";
+		
+		try {
+			Connection con = db.getConn();
+			prepStmt = con.prepareStatement(searchQuery);
+			ResultSet rs = prepStmt.executeQuery();
+			
+			while(rs.next()) {
+				int id = rs.getInt("customer_id");
+				String fName = rs.getString("first_name");
+				String lName = rs.getString("last_name");
+				String userName = rs.getString("user_name");
+				String password = rs.getString("password");
+				int loyalty = rs.getInt("loyalty_points_customer");
+				
+				Customer customerOut = new Customer(id,fName,lName,userName,password,loyalty);
+				return customerOut;
+			}
+		}catch(SQLException e) {
+			System.out.println("Search Failed");
+			e.printStackTrace();
+			
+		}
+		try {
+			db.closeConn();
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("close failed");
+		}
+		return null;	
 	}
 
 }
