@@ -1,0 +1,104 @@
+@charset "ISO-8859-1";
+* {
+	margin: 0;
+	padding: 0;
+}
+/* Login page */
+.loginbox {border-style: solid;}
+
+/* Header Navbar Section */
+header {
+	padding-bottom: 0;
+}
+
+#nav {
+	padding-bottom: 2rem;
+}
+
+.logo {
+	height: 250px;
+	width: 250px;
+	float: right;
+	margin-left: 15px;
+}
+
+#navbar li {
+	padding-left: 5rem;
+}
+
+#hr-line {
+	
+	width: 75%;
+	position: relative;
+	left: 18rem;
+	bottom: 9rem;
+}
+
+.user_auth {
+	margin-right: 9rem;
+}
+
+/* Landing page body */
+#index-bg {
+
+	padding-bottom: 60rem;
+	background: url("../img/room.png");
+	background-repeat: no-repeat;
+	background-size: 100%; 
+	
+}
+
+#search-box {
+	position: relative;
+	bottom: 55rem;
+	padding: 3% 2%;
+	margin: 0 auto 0 auto;
+	background-color: rbga(black, 0.5);
+	box-shadow: 5px 10px 18px #888888;
+	border-radius: 10px;
+}
+
+#search-box img {
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 15rem;
+	height: 15rem;
+}
+
+#row-1, #row-2 {
+	padding-bottom: 1.5rem;
+}
+
+#search-btn {
+	background-color: #60a5a6;
+	color: #fff;
+}
+
+
+/* Card Section */
+#card-div {
+	position: relative;
+	bottom: 20rem;
+		
+}
+
+#card-div h3 {
+	text-align: center;
+}
+
+.ldn-card img, .sdy-card img, .hi-card img{
+	width: 26rem;
+	height: 30rem;
+
+}
+
+div.card-body {
+	background-color: #918f8e;
+	width: 26rem;
+}
+
+footer {
+	background-color: #2e2d2d; 
+}
+

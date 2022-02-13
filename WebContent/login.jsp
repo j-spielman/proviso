@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="site.css">
 <meta charset="ISO-8859-1">
-<title>Proviso Login</title>
+<jsp:include page="style.jsp" flush="true" />
+<title>Proviso | Login</title>
 </head>
+
+<jsp:include page="header.jsp" flush="true" />
+
 <body>
 	<div class="loginbox">
 		<form action="/index.jsp" method="post">
@@ -19,5 +22,11 @@
 	</div>
 	
 	Would you like to join?<a href="/registration.jsp">Click here</a>
+
+	<jsp:include page="footer.jsp" flush="true" />
+	<!-- JavScript script for bootstrap to function  -->
+	<jsp:include page="script.jsp" flush="true" />
+	
 </body>
+
 </html>
