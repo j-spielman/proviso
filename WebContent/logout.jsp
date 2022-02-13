@@ -4,13 +4,15 @@
 <html>
 <head>
 <% 
-session.invalidate();
-%>
+/*  */session.invalidate();
+%> 
 <jsp:include page="style.jsp" flush="true" />
 <meta charset="ISO-8859-1">
 <title>Log Out</title>
 </head>
+
 <jsp:include page="header.jsp" flush="true" />
+
 <body>
 You are now logged out. Thank you!
 
