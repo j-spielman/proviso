@@ -1,8 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="dbBeans.JdbcCustomerDao, dbBeans.Customer" %>
 <!DOCTYPE html>
 <html>
 <head>
+<%
+if (request.getMethod().equalsIgnoreCase("post")){
+	JdbcCustomerDao dao = new JdbcCustomerDao();
+	Customer c = dao.findByUser(request.getParameter("username"));
+	if (c == null){
+		response.sendRedirect("loginFailure.jsp");
+	}
+	else{
+		if (c.getPassword().equals(request.getParameter("pwd"))){
+			session.setAttribute("login",c);
+			response.sendRedirect("index.jsp");
+		}
+		else {
+			response.sendRedirect("loginFailure.jsp");
+		}
+	}
+}
+%>
 <meta charset="ISO-8859-1">
 <jsp:include page="style.jsp" flush="true" />
 <title>Proviso | Login</title>
