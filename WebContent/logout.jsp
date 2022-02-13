@@ -1,24 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- 
+Muhammad Tariq
+CSD - 460 Capstone
+Poviso
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
-<% 
-/*  */session.invalidate();
-%> 
-<jsp:include page="style.jsp" flush="true" />
-<meta charset="ISO-8859-1">
-<title>Log Out</title>
+<meta charset="UTF-8">
+<title>Logout Page</title>
 </head>
-
-<jsp:include page="header.jsp" flush="true" />
-
 <body>
-You are now logged out. Thank you!
-
-<jsp:include page="footer.jsp" flush="true" />
-	<!-- JavScript script for bootstrap to function  -->
-<jsp:include page="script.jsp" flush="true" />
-	
+	<%
+		session.invalidate();
+		response.sendRedirect("index.jsp");
+	%>
 </body>
 </html>
