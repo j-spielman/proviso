@@ -22,10 +22,12 @@ if (request.getMethod().equalsIgnoreCase("post")){
 	}
 }
 %>
-<link rel="stylesheet" type="text/css" href="site.css">
+<jsp:include page="style.jsp" flush="true" />
 <meta charset="ISO-8859-1">
-<title>Proviso Login</title>
+<title>Proviso | Login</title>
 </head>
+<jsp:include page="header.jsp" flush="true" />
+	
 <body>
 
 	<div class="loginbox">
@@ -39,5 +41,13 @@ if (request.getMethod().equalsIgnoreCase("post")){
 	</div>
 	
 	<p>Would you like to join?<a href="/registration.jsp">Click here</a></p>
+	
+	<jsp:include page="footer.jsp" flush="true" />
+	<!-- JavScript script for bootstrap to function  -->
+	<jsp:include page="script.jsp" flush="true" />
+	
+
 </body>
+
+
 </html>
