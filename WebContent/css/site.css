@@ -99,6 +99,8 @@ div.card-body {
 }
 
 footer {
-	background-color: #2e2d2d; 
+	background-color: #2e2d2d;
+	position: fixed;
+	bottom: 0;
 }
 
