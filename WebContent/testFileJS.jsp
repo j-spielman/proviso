@@ -12,12 +12,8 @@
 <body>
 <%
 	JdbcCustomerDao db = new JdbcCustomerDao();
-	
-	Customer test = db.findByUser("joeyspielman@gmail.com");
-		
-	out.print(test.toString());
-	
-	
+	Customer test = new Customer(99,"test","test","test@test","pass",9999);
+
 %>
 
 </body>
