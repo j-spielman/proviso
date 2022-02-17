@@ -19,8 +19,8 @@ Poviso
 		<img src="images/logo.jpeg" alt="Proviso Logo" width="200" height="148">
 	</div>
 
-	<!-- Topnav File -->
-	<jsp:include page="topNav.jsp" flush="true" />
+	<!-- header File -->
+	<jsp:include page="header.jsp" flush="true" />
 
 	<main>
 		<!-- Displays an error message for issues with email or password. -->
