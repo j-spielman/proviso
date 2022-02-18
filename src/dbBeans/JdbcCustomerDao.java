@@ -31,7 +31,7 @@ public class JdbcCustomerDao implements CustomerDao {
 			prepStmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
-			System.out.println("Record Insertion Failed");
+			System.out.println("Insert Failed");
 		}
 		
 		try {
