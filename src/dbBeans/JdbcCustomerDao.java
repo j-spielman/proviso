@@ -41,7 +41,7 @@ public class JdbcCustomerDao implements CustomerDao {
 		}
 		
 	}
-
+	
 	@Override
 	public void update(Customer entity) {
 		PreparedStatement prepStmt = null;
@@ -69,8 +69,7 @@ public class JdbcCustomerDao implements CustomerDao {
 			e.printStackTrace();
 			System.out.println("Close Failed");
 		}
-		
-		
+				
 	}
 
 	@Override

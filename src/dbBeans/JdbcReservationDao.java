@@ -1,6 +1,7 @@
 package dbBeans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,12 +22,19 @@ public class JdbcReservationDao implements ReservationDao {
 		// constructor
 		db = new JdbcManager(); 
 	}
-	
-	
 	@Override
-	public long add(Reservation entity) // create
+	public void add(Reservation Entity) {}
+	
+	
+	public long addReturnId(Reservation entity) // create
 	{
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		Reservation newReservation = entity; 
 		
 		if (con != null) 
@@ -55,8 +63,7 @@ public class JdbcReservationDao implements ReservationDao {
 				ResultSet rs = selectStatement.executeQuery("SELECT MAX(reservation_id) FROM reservation;");
 				rs.next();
 				reservation_id = rs.getLong(1);
-				System.out.println("Created reservation " + reservation_id);
-				
+				System.out.println("Created reservation " + reservation_id);				
 				s.close();
 				return reservation_id;
 			}
@@ -65,14 +72,20 @@ public class JdbcReservationDao implements ReservationDao {
 				System.out.println("Sorry, we are unable to insert new reservation: " + newReservation.toString()); 
 				System.out.println(ex.getMessage());
 			}
-		}
+		}		
 		return 0;
 	}
 
 	@Override
 	public List<Reservation> list() 
 	{
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
 		ArrayList<Reservation> reservations = new ArrayList<Reservation>();
 		
 		if (con != null) 
@@ -81,7 +94,7 @@ public class JdbcReservationDao implements ReservationDao {
 			{
 				Statement s = con.createStatement();
 				
-				String sql = "select reservation_id, roomSize, customer_id, amenities, guests, loyaltyPoints, checkIn, checkOut from reservation";
+				String sql = "select reservation_id, roomSize, customer_id, amenities, guests, loyalty_points_reservation, checkIn, checkOut from reservation";
 				
 				System.out.println(sql);
 				
@@ -115,17 +128,35 @@ public class JdbcReservationDao implements ReservationDao {
 			}
 			finally
 			{
-				db.closeConn(con);
+				try {
+					db.closeConn();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		
 		return reservations;
 	}
+	
 
+	
 	@Override
 	public Reservation find(Long key) 
 	{
-		Connection con = db.getConn(); 
+	
+		//Connection con = db.getConn();
+		
+
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+
 		
 		Reservation reservation = null; 
 		
@@ -160,12 +191,20 @@ public class JdbcReservationDao implements ReservationDao {
 				System.out.println("Sorry, we could not get reservation: " + ex.getMessage());
 			}
 		}
-		return reservation;
+		
+		return reservation;		
+		
 	}
 
 	@Override
 	public void update(Reservation entity) {
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 		
 		Reservation updatedReservation = entity; 
@@ -193,7 +232,13 @@ public class JdbcReservationDao implements ReservationDao {
 
 	@Override
 	public void remove(Long key) {
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 		if (con != null) 
 		{	
