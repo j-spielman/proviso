@@ -12,7 +12,7 @@
 		verify you are signed in
 		if not, will be redirected to the log in page
 		 -->
-		<%
+		<%		
 			if(session.getAttribute("login")==null || session.getAttribute("login")==" ")
 			{
 				response.sendRedirect("/proviso/?action=showLoginPage");
