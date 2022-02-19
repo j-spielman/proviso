@@ -28,7 +28,13 @@ public class JdbcReservationDao implements ReservationDao {
 	
 	public long addReturnId(Reservation entity) // create
 	{
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		Reservation newReservation = entity; 
 		
 		if (con != null) 
@@ -73,7 +79,13 @@ public class JdbcReservationDao implements ReservationDao {
 	@Override
 	public List<Reservation> list() 
 	{
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
 		ArrayList<Reservation> reservations = new ArrayList<Reservation>();
 		
 		if (con != null) 
@@ -82,7 +94,7 @@ public class JdbcReservationDao implements ReservationDao {
 			{
 				Statement s = con.createStatement();
 				
-				String sql = "select reservation_id, roomSize, customer_id, amenities, guests, loyaltyPoints, checkIn, checkOut from reservation";
+				String sql = "select reservation_id, roomSize, customer_id, amenities, guests, loyalty_points_reservation, checkIn, checkOut from reservation";
 				
 				System.out.println(sql);
 				
@@ -116,7 +128,12 @@ public class JdbcReservationDao implements ReservationDao {
 			}
 			finally
 			{
-				db.closeConn(con);
+				try {
+					db.closeConn(con);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		
@@ -128,9 +145,19 @@ public class JdbcReservationDao implements ReservationDao {
 	@Override
 	public Reservation find(Long key) 
 	{
+<<<<<<< HEAD
 		
 		Connection con = db.getConn();
 		
+=======
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+>>>>>>> f5d118e85ac86ffe1bbdfa70067b0323dc1fb665
 		
 		Reservation reservation = null; 
 		
@@ -172,7 +199,13 @@ public class JdbcReservationDao implements ReservationDao {
 
 	@Override
 	public void update(Reservation entity) {
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 		
 		Reservation updatedReservation = entity; 
@@ -200,7 +233,13 @@ public class JdbcReservationDao implements ReservationDao {
 
 	@Override
 	public void remove(Long key) {
-		Connection con = db.getConn(); 
+		Connection con = null;
+		try {
+			con = db.getConn();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		
 		if (con != null) 
 		{	

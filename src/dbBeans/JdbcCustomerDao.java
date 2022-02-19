@@ -69,8 +69,7 @@ public class JdbcCustomerDao implements CustomerDao {
 			e.printStackTrace();
 			System.out.println("Close Failed");
 		}
-		
-		
+				
 	}
 
 	@Override
