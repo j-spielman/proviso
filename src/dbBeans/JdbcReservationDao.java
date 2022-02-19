@@ -129,7 +129,7 @@ public class JdbcReservationDao implements ReservationDao {
 			finally
 			{
 				try {
-					db.closeConn(con);
+					db.closeConn();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -145,11 +145,10 @@ public class JdbcReservationDao implements ReservationDao {
 	@Override
 	public Reservation find(Long key) 
 	{
-<<<<<<< HEAD
+	
+		//Connection con = db.getConn();
 		
-		Connection con = db.getConn();
-		
-=======
+
 		Connection con = null;
 		try {
 			con = db.getConn();
@@ -157,7 +156,7 @@ public class JdbcReservationDao implements ReservationDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
->>>>>>> f5d118e85ac86ffe1bbdfa70067b0323dc1fb665
+
 		
 		Reservation reservation = null; 
 		
