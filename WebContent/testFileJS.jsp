@@ -13,10 +13,22 @@
 </head>
 <body>
 <%
-	//JdbcCustomerDao db = new JdbcCustomerDao();
-	long test = 1;
-	JdbcReservationDao db = new JdbcReservationDao();
+	JdbcCustomerDao db = new JdbcCustomerDao();
+	
+	Customer test = db.findByUser("joeyspielman@gmail.com");
+	
+	out.print(test.toString());
+	
+	int points = 184;
+	
+	db.addloyalty_points_customer(test, points);
+	
+	Customer after = db.findByUser("joeyspielman@gmail.com");
+	
+	out.print("<br/><br/> "+after.getLoyalty_points_customer());
+			
 	//Customer test = new Customer(99,"test","test","test@test","pass",9999);
+	/*
 	long id = 9999;
 	String checkIn = "March 1st";
 	String checkout = "March 3rd";
@@ -29,7 +41,7 @@
 	Reservation resTest = new Reservation(id,checkIn,checkout,room,custId,amenities,guests,loyalty);
 	
 	System.out.println(resTest.toString());
-	
+	*/
 	
 	
 	

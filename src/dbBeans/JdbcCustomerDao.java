@@ -71,6 +71,30 @@ public class JdbcCustomerDao implements CustomerDao {
 		}
 				
 	}
+	
+	public void addloyalty_points_customer(Customer in,Integer pointsIn) {
+		PreparedStatement prepStmt =null;
+		int updateId = in.getCustomer_id();		
+		int newPointsValue = in.getLoyalty_points_customer()+pointsIn;
+		String updateQuery = "Update Customer SET loyalty_points_customer ="+newPointsValue+" WHERE customer_id= "+updateId;
+		
+		try {
+			Connection con = db.getConn();
+			prepStmt = con.prepareStatement(updateQuery);
+			prepStmt.executeUpdate();
+			System.out.println("Points updated");
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("Update Failed");
+		}		
+		try {
+			db.closeConn();
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("Close Failed");
+		}
+	}
+	
 
 	@Override
 	public void remove(Integer key) {
@@ -140,5 +164,7 @@ public class JdbcCustomerDao implements CustomerDao {
 		}
 		return null;	
 	}
+	
+
 
 }
