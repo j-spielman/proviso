@@ -85,7 +85,10 @@ Poviso
 				Class.forName("com.mysql.jdbc.Driver");
 				
 				/* Credentials below need updated. */
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/proviso","proviso_user", "MySQL5IsGreat!");
+
+				//Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbuser","root", "");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/proviso?","proviso_user","MySQL5IsGreat!");
+				
 				
 				if (request.getParameter("login_button")!=null)
 				{
@@ -113,7 +116,9 @@ Poviso
 						{
 							/* This sets the session name and stores the username (Email address) associated with the session */
 							session.setAttribute("login",dbuser_name);
+
 							response.sendRedirect("index.jsp");
+
 						}
 					}
 					else
