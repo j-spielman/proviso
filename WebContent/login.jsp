@@ -11,12 +11,13 @@ Poviso
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/site.css">
+
 <title>Login</title>
+<jsp:include page="style.jsp" flush="true" />
 </head>
 <body>
 	<div class="logo">
-		<img src="images/logo.jpeg" alt="Proviso Logo" width="200" height="148">
+		<img src="img/logo.png" alt="Proviso Logo" width="200" height="148">
 	</div>
 
 	<!-- header File -->
@@ -74,7 +75,7 @@ Poviso
 		<%
 			if (session.getAttribute("login")!=null)
 			{
-				response.sendRedirect("new.jsp");
+				response.sendRedirect("index.jsp");
 			}
 		%>
 
@@ -84,7 +85,7 @@ Poviso
 				Class.forName("com.mysql.jdbc.Driver");
 				
 				/* Credentials below need updated. */
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbuser","root", "");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/proviso","proviso_user", "MySQL5IsGreat!");
 				
 				if (request.getParameter("login_button")!=null)
 				{
@@ -112,7 +113,7 @@ Poviso
 						{
 							/* This sets the session name and stores the username (Email address) associated with the session */
 							session.setAttribute("login",dbuser_name);
-							response.sendRedirect("new.jsp");
+							response.sendRedirect("index.jsp");
 						}
 					}
 					else
