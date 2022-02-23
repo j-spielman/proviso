@@ -40,6 +40,8 @@ CREATE TABLE customer (
 -- create reservation table 
 CREATE TABLE reservation (
 	reservation_id		INT 			NOT NULL 		AUTO_INCREMENT,
+	checkIn				DATE			NOT NULL,
+	checkOut			DATE			NOT NULL,
 	roomSize			VARCHAR(30)	    NOT NULL, 
 	customer_id			INT				NOT NULL,
 	amenities			VARCHAR(150)	NOT NULL,
@@ -69,20 +71,20 @@ INSERT INTO customer(first_name, last_name, user_name, password, loyalty_points_
 	VALUES('Zachary', 'Hunn', 'zacharyhunn@gmail.com', 'passworde155555', '300');
 
 
-INSERT INTO reservation(roomSize, customer_id, amenities, guests, loyalty_points_reservation)
-	VALUES('king',(SELECT customer_id FROM customer WHERE last_name = 'Guillen'),'wifi breakfast', '3-5', '150');
+INSERT INTO reservation(checkIn, checkOut, roomSize, customer_id, amenities, guests, loyalty_points_reservation)
+	VALUES('2022-03-15', '2022-03-21','king',(SELECT customer_id FROM customer WHERE last_name = 'Guillen'),'wifi breakfast', '3-5', '150');
 	
-INSERT INTO reservation(roomSize, customer_id, amenities, guests, loyalty_points_reservation)
-	VALUES('double queen beds',(SELECT customer_id FROM customer WHERE last_name = 'Spielman'),'wifi breakfast parking', '3-5', '150');
+INSERT INTO reservation(checkIn, checkOut, roomSize, customer_id, amenities, guests, loyalty_points_reservation)
+	VALUES('2022-03-15', '2022-03-21','double queen beds',(SELECT customer_id FROM customer WHERE last_name = 'Spielman'),'wifi breakfast parking', '3-5', '150');
 	
-INSERT INTO reservation(roomSize, customer_id, amenities, guests, loyalty_points_reservation)
-	VALUES('queen',(SELECT customer_id FROM customer WHERE last_name = 'Starr'),'wifi ', '3-5', '150');
+INSERT INTO reservation(checkIn, checkOut, roomSize, customer_id, amenities, guests, loyalty_points_reservation)
+	VALUES('2022-03-15', '2022-03-21','queen',(SELECT customer_id FROM customer WHERE last_name = 'Starr'),'wifi ', '3-5', '150');
 	
-INSERT INTO reservation(roomSize, customer_id, amenities, guests, loyalty_points_reservation)
-	VALUES('double full beds',(SELECT customer_id FROM customer WHERE last_name = 'Tariq'),'wifi breakfast', '3-5', '150');
+INSERT INTO reservation(checkIn, checkOut, roomSize, customer_id, amenities, guests, loyalty_points_reservation)
+	VALUES( '2022-03-15', '2022-03-21','double full beds',(SELECT customer_id FROM customer WHERE last_name = 'Tariq'),'wifi breakfast', '3-5', '150');
 
-INSERT INTO reservation(roomSize, customer_id, amenities, guests, loyalty_points_reservation)
-	VALUES('double full beds',(SELECT customer_id FROM customer WHERE last_name = 'Hunn'),'wifi parking', '3-5', '150');
+INSERT INTO reservation(checkIn, checkOut, roomSize, customer_id, amenities, guests, loyalty_points_reservation)
+	VALUES('2022-03-15', '2022-03-21','double full beds',(SELECT customer_id FROM customer WHERE last_name = 'Hunn'),'wifi parking', '3-5', '150');
 	
 	
 	
