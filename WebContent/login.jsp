@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 
 <!-- 
 Muhammad Tariq
@@ -11,12 +11,75 @@ Poviso
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="./css/site.css">
+
+		<!-- This checks to see if the user is already logged in and directs them back to the main page if already logged in. -->
+		<%
+			if (session.getAttribute("login")!=null)
+			{
+				response.sendRedirect("index.jsp");
+			}
+		
+			try
+			{
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				
+				/* Credentials below need updated. */
+
+				//Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbuser","root", "");
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/proviso?","proviso_user","MySQL5IsGreat!");
+				
+				
+				if (request.getParameter("login_button")!=null)
+				{
+					String dbuser_name, dbpassword;
+					
+					String user_name, password;
+					
+					user_name=request.getParameter("user_name");
+					password=request.getParameter("password");
+					
+					PreparedStatement pstmt=null;
+					
+					pstmt=con.prepareStatement("SELECT * FROM customer WHERE user_name=? AND password=?");
+					pstmt.setString(1,user_name);
+					pstmt.setString(2,password);
+					
+					ResultSet rs=pstmt.executeQuery();
+					
+					if(rs.next())
+					{
+						dbuser_name=rs.getString("user_name");
+						dbpassword=rs.getString("password");
+						
+						if(user_name.equals(dbuser_name) && password.equals(dbpassword))
+						{
+							/* This sets the session name and stores the username (Email address) associated with the session */
+							session.setAttribute("login",dbuser_name);
+
+							response.sendRedirect("index.jsp");
+
+						}
+					}
+					else
+					{
+						request.setAttribute("errorMsg", "invalid username (email) or password");
+					}
+					con.close();
+				}
+			}
+			catch (Exception e)
+			{
+				out.println(e);	
+			}
+		
+		%>
+
 <title>Login</title>
+<jsp:include page="style.jsp" flush="true" />
 </head>
 <body>
 	<div class="logo">
-		<img src="images/logo.jpeg" alt="Proviso Logo" width="200" height="148">
+		<img src="img/logo.png" alt="Proviso Logo" width="200" height="148">
 	</div>
 
 	<!-- header File -->
@@ -60,78 +123,26 @@ Poviso
 				if (password.value == null || password.value == "")
 				{
 					window.alert("Password field empty");
-					password.style.background = "#8B0000";
+					password.style.background = "red";
 					password.focus();
 					return false;
 				}
 			}
 		</script>
 
-		<!-- This imports the SQL needed to check the login info against the database. -->
-		<%@ page import="java.sql.*" %>
-
-		<!-- This checks to see if the user is already logged in and directs them back to the main page if already logged in. -->
-		<%
-			if (session.getAttribute("login")!=null)
-			{
-				response.sendRedirect("new.jsp");
-			}
-		%>
-
-		<%
-			try
-			{
-				Class.forName("com.mysql.jdbc.Driver");
-				
-				/* Credentials below need updated. */
-				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/dbuser","root", "");
-				
-				if (request.getParameter("login_button")!=null)
-				{
-					String dbuser_name, dbpassword;
-					
-					String user_name, password;
-					
-					user_name=request.getParameter("user_name");
-					password=request.getParameter("password");
-					
-					PreparedStatement pstmt=null;
-					
-					pstmt=con.prepareStatement("SELECT * FROM customer WHERE user_name=? AND password=?");
-					pstmt.setString(1,user_name);
-					pstmt.setString(2,password);
-					
-					ResultSet rs=pstmt.executeQuery();
-					
-					if(rs.next())
-					{
-						dbuser_name=rs.getString("user_name");
-						dbpassword=rs.getString("password");
-						
-						if(user_name.equals(dbuser_name) && password.equals(dbpassword))
-						{
-							/* This sets the session name and stores the username (Email address) associated with the session */
-							session.setAttribute("login",dbuser_name);
-							response.sendRedirect("new.jsp");
-						}
-					}
-					else
-					{
-						request.setAttribute("errorMsg", "invalid username (email) or password");
-					}
-					con.close();
-				}
-			}
-			catch (Exception e)
-			{
-				out.println(e);	
-			}
-		
-		%>
-
 
 	</main>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
 	<!-- Page Footer File -->
 	<jsp:include page="footer.jsp" flush="true" />
 </body>
