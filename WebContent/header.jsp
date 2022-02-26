@@ -15,12 +15,12 @@
 			<div class="collapse navbar-collapse justify-content-center" id="navbar">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">Reservations</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Loyalty Points</a>
+						aria-current="page" href="./reservation/newreservation.jsp">Reservations</a></li>
+					<li class="nav-item"><a class="nav-link" href="loyaltypoints.jsp">Loyalty Points</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">About Us</a>
+					<li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+					<li class="nav-item"><a class="nav-link" href="contact.jsp">Contact Us</a></li>
 				</ul>
 			</div>
 			

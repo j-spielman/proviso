@@ -78,9 +78,6 @@ Poviso
 <jsp:include page="style.jsp" flush="true" />
 </head>
 <body>
-	<div class="logo">
-		<img src="img/logo.png" alt="Proviso Logo" width="200" height="148">
-	</div>
 
 	<!-- header File -->
 	<jsp:include page="header.jsp" flush="true" />
