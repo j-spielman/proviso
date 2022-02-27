@@ -16,6 +16,7 @@
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="./reservation/newreservation.jsp">Reservations</a></li>
+					<li class="nav-item"><a class="nav-link" href="reservationLookup.jsp">Reservation Lookup</a>
 					<li class="nav-item"><a class="nav-link" href="loyaltypoints.jsp">Loyalty Points</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="about.jsp">About Us</a>

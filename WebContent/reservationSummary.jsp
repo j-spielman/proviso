@@ -1,13 +1,4 @@
-<!-- 
-	private long reservation_id; 
-	private String checkIn;
-	private String checkOut;
-	private String roomSize; 
-	private String customer_id; 
-	private String amenities; 
-	private String guests; 
-	private int loyalty_points_reservation;
- -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="dbBeans.Reservation"%>
@@ -44,19 +35,14 @@
 	<link rel="stylesheet" href="./css/site.css">
 </head>
 <body>
-
 <div class="container-md">
 <%if(flag == 1){out.print("<span style='color:red'><h3>Invalid Reservation Id </h3></span><a href='reservationLookup.jsp'>Return to lookup</a>");} %>
-
 <div class="card" id="summary-card">
 <h3 id="summary-title">Summary for Reservation Number: # <%out.print(temp.getReservation_id()); %></h3>
-
-
-    <ul class="list-group list-group-flush" style="width: 100%;">        
-    	<%out.print("<br/>Passed Value: "+resId+"<br/>"); %>      
+    <ul class="list-group list-group-flush" style="width: 100%;">            	
     	<%
     	if(flag == 0){
-	       out.print("<li class='list-group-item' id='summary-line'>Check-In:"+ temp.getCheckIn()+"</li>");     			    
+	       out.print("<li class='list-group-item' id='summary-line'>Check-In: "+ temp.getCheckIn()+"</li>");     			    
 	       out.print("<li class='list-group-item' id='summary-line'>Check-Out: "+temp.getCheckOut()+"</li>");
 	       out.print("<li class='list-group-item' id='summary-line'>Room Type: "+temp.getRoomSize()+"&nbsp;&nbsp;|&nbsp;Guests: "+temp.getGuests()+"</li>");
 	       out.print("<li class='list-group-item' id='summary-line'>Amenities: "+temp.getAmenities()+"</li>");
