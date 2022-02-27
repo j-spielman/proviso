@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="dbBeans.Customer"%>
  
 
  
@@ -72,7 +73,7 @@
 	
 
 	dbBeans.JdbcReservationDao reservationDao = new dbBeans.JdbcReservationDao(); 
-	long reservation_id = reservationDao.add(newReservation);
+	long reservation_id = reservationDao.addReturnId(newReservation);
 
 	System.out.println(newReservation.toString());
 	System.out.println(String.format("Reservation{checkIn=%s, checkOut=%s, roomSize=%s, amenities=%s, guests=%s, loyalty_points_reservation=%s, customer_id=%s}", checkIn, checkOut, roomSize, amenities, guests, loyalty_points_reservation, customer_id));
@@ -84,7 +85,9 @@
 		System.out.println("Adding loyalty points to customer " + user + " number: " + pointsToAdd);
 		if(user!= "") {
 			dbBeans.JdbcCustomerDao customerDao = new dbBeans.JdbcCustomerDao(); 
-			customerDao.addloyalty_points_customer(user,pointsToAdd);
+			//get Customer to be passeed to addloyalty
+			Customer current = customerDao.findByUser(user);
+			customerDao.addloyalty_points_customer(current,pointsToAdd);
 		}
 	}
 	
