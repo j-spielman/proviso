@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-   < !DOCTYPE html>
+   <!DOCTYPE html>
 
 <html>
 	<head>
+	<jsp:include page="style.jsp" flush="true" />
 	<meta charset="UTF-8">
 	
 	<title>Proviso</title>
@@ -14,11 +15,11 @@
 			
 	
 	<body>
-	
+	<!-- 
 	<div class="logo">
 			<img src="../images/logo.jpeg" alt="Proviso Logo" width="200" height="148" style="float:center;clear:both;overflow:auto;">
 		</div>
-		
+		 -->
 		
 		<jsp:include page="header.jsp" flush="true" />	
 	

@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Proviso | Contact Us</title>
 
+<jsp:include page="style.jsp" flush="true" />
 <link
 	rel="stylesheet" href="../css/site.css">
     
@@ -16,12 +17,12 @@
 </head>
 
 <body>
-
+<!-- 
 	<div class="logo">
 		<img src="../images/logo.jpeg" alt="Proviso Logo" width="200" height="148" style="float:center;clear:both;overflow:auto;">
 	</div>
 	
-	
+	 -->
 			
 		
 		<jsp:include page="header.jsp" flush="true" />	
