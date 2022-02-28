@@ -23,9 +23,9 @@
 				
 	</div>
 	
-	<div class="container-md" id="search-box">
+	<div class="container-md" id="search-box" style="background-color:white;text-align:center">
 		
-You can review or cancel your reservation here. If you need additional assistance please call xxx-xxx-xxxx.
+You can review or cancel your reservation here. If you need additional assistance please call xxx-xxx-xxxx.<p>
 		<form method="post" action="./reservationSummary.jsp">
            <label for="fname">First name:</label>
            <input type="text" id="fname" name="fname">
