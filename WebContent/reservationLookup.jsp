@@ -5,7 +5,7 @@
 <head>
 	<title>Welcome | Proviso</title>
 	<!-- Bootstrap link  -->
-	<jsp:include page="../style.jsp" flush="true" />
+	<jsp:include page="style.jsp" flush="true" />
 	
 	<!--Date Picker  -->
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	<jsp:include page="../header.jsp" flush="true" />
+	<jsp:include page="header.jsp" flush="true" />
 	
 	
 
@@ -23,16 +23,16 @@
 				
 	</div>
 	
-	<div class="container-md" id="search-box">
-		<img src="../img/logo_transparent.png" alt="hotel logo">
-You can review or cancel your reservation here. If you need additional assistance please call xxx-xxx-xxxx.
-		<form>
+	<div class="container-md" id="search-box" style="background-color:white;text-align:center">
+		
+You can review or cancel your reservation here. If you need additional assistance please call xxx-xxx-xxxx.<p>
+		<form method="post" action="./reservationSummary.jsp">
            <label for="fname">First name:</label>
            <input type="text" id="fname" name="fname">
            <label for="lname">Last name:</label>
            <input type="text" id="lname" name="lname">
            <label for="cnum">Confirmation Number:</label>
-           <input type="text" id="cnum" name="cnum">
+           <input type="text" id="cnum" name="reservationId">
            <br>
            <input type="submit" value="Submit">
        </form>
@@ -44,9 +44,9 @@ You can review or cancel your reservation here. If you need additional assistanc
 		
 		
 
-	<jsp:include page="../footer.jsp" flush="true" />
+	<jsp:include page="footer.jsp" flush="true" />
 	<!-- JavScript script for bootstrap to function  -->
-	<jsp:include page="../script.jsp" flush="true" />
+	<jsp:include page="script.jsp" flush="true" />
 	
 	
 </body>

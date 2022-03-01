@@ -35,8 +35,6 @@
 			
 			<!-- 2: Create Form to accept new reservation -->
     		<h2 style="float:right;font-size:1em;">Welcome  -- <% /*session.getAttribute("login")*/ %><a href="/proviso/?action=logoutUser">Logout?</a></h2>
-	
-			
 		
 		<!-- Tie in the topNav file and where I want it. -->
 		<jsp:include page="../header.jsp" flush="true" />	
@@ -50,7 +48,7 @@
     	
     	<div class="center-form width-35">
 	
-		<form>
+		<form method="post" action="completereservation.jsp">
 			<input type="hidden" name="action" value="confirmReservation" />
 			
 			<h3>Reservation Dates:</h3>			
