@@ -48,6 +48,24 @@ header {
 	
 }
 
+#summary-card{
+	background-color: #52575d;
+}
+#summary-title{
+	color: white;
+	text-align: center;	
+	font-weight: bold;
+	
+}
+
+#summary-customer{	
+	font-size: x-large;
+}
+
+#summary-line{
+	font-size: larger;
+}
+
 #search-box {
 	position: relative;
 	bottom: 55rem;
@@ -92,6 +110,7 @@ header {
 	height: 30rem;
 
 }
+
 
 div.card-body {
 	background-color: #918f8e;
