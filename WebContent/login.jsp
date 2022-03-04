@@ -62,7 +62,7 @@ Poviso
 					}
 					else
 					{
-						request.setAttribute("errorMsg", "invalid username (email) or password");
+						request.setAttribute("errorMsg", "<p style='color:red;'>Invalid username (email) or password</p>");
 					}
 					con.close();
 				}
