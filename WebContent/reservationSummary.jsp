@@ -24,6 +24,10 @@
 		message ="Invalid Reservation Id";
 		flag = 1;
 	}
+	
+	if(temp == null){
+		flag = 1;
+	}
 %>
 <!DOCTYPE html>
 <html>
