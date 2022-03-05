@@ -38,7 +38,7 @@
 		
 			out.print(message);
 			out.print("<br /> <button onclick=window.location.href='registration.jsp';> Register</button>");					
-			out.print("&nbsp; <button onclick=window.location.href='registration.jsp';> Login</button>");
+			out.print("&nbsp; <button onclick=window.location.href='login.jsp';> Login</button>");
 	%>
 	</div>		
 </body>
