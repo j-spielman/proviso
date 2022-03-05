@@ -16,7 +16,9 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" flush="true" />
-	
+	<% if(session.getAttribute("login")!=null){%>
+	<div style="color:gray;font-weight:bold;text-align:center;width:100%">Welcome <%=session.getAttribute("login")%></div><%
+	}%>
 	
 
 	<div class="container-fluid" id="index-bg">
